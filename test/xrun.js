@@ -9,7 +9,7 @@ describe('xrun', function() {
 			var result = spawn(args, dir);
 			expect(result.stdout).to.equal(expected.stdout);
 			expect(result.stderr).to.equal(expected.stderr);
-			expect(result.code).to.equal(expected.code)
+			expect(result.code).to.equal(expected.code);
 		});
 	};
 

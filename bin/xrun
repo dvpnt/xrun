@@ -43,8 +43,7 @@ function parsePackageJson() {
 
 	try {
 		packageJson = JSON.parse(packageJson);
-	}
-	catch (err) {
+	} catch (err) {
 		console.error('[xrun] can\'t parse package.json');
 		process.exit(1);
 	}
