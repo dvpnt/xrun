@@ -11,7 +11,7 @@ node_js:
   - stable
 
 before_script:
-  - npm i xrun
+  - npm i xrun -g
 
 script:
   - xrun lint
