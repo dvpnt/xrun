@@ -9,6 +9,7 @@ Alternative scripts runner for npm
  - pass arguments direct to script (without `--`)
  - working with npm `pre` and `post` scripts
  - working with npm config variables
+ - do not print useless npm error log on script error
 
 
 ## Install
