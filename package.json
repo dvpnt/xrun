@@ -1,6 +1,6 @@
 {
   "name": "xrun",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Alternative scripts runner for npm ",
   "author": "Aleksey Timchenko <flegmatik.bel@gmail.com>",
   "license": "MIT",
