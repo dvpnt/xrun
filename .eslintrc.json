@@ -1,0 +1,6 @@
+{
+	"extends": "dvpnt",
+	"rules": {
+		"no-console": "off"
+	}
+}

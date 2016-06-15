@@ -1,0 +1,14 @@
+{
+  "config": {
+    "message": "message from config"
+  },
+  "scripts": {
+    "script1": "echo 'hello from xrun'",
+    "script2": "echo",
+    "prescript3": "echo 'pre script3'",
+    "script3": "echo 'script3'",
+    "postscript3": "echo 'post script3'",
+    "script4": "echo \"$npm_package_config_message\"",
+    "exit": "node ./exit"
+  }
+}

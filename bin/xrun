@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var spawn = require('child_process').spawn,
+	fs = require('fs');
+
+var packageJson = parsePackageJson(),
+	scriptName = process.argv[2],
+	args = process.argv.slice(3) || [];
+
+if (!scriptName) {
+	return process.exit(0);
+}
+
+if (!packageJson.scripts[scriptName]) {
+	console.error('[xrun] missing script: %s', scriptName);
+	process.exit(1);
+}
+
+console.log('> xrun %s', scriptName);
+console.log('> %s %s', packageJson.scripts[scriptName], args.join(' '));
+
+if (args.length) {
+	args.unshift('--');
+}
+
+spawn('npm', ['run', '--silent', scriptName].concat(args), {
+	stdio: 'inherit'
+}).on('close', function(code) {
+	process.exit(code);
+});
+
+function parsePackageJson() {
+	var packageJson;
+
+	try {
+		packageJson = fs.readFileSync('./package.json', 'utf8');
+	} catch (err) {
+		console.error('[xrun] can\'t find package.json');
+		process.exit(1);
+	}
+
+	try {
+		packageJson = JSON.parse(packageJson);
+	}
+	catch (err) {
+		console.error('[xrun] can\'t parse package.json');
+		process.exit(1);
+	}
+
+	return packageJson;
+}
